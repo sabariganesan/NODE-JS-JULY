@@ -1,11 +1,13 @@
 import express from "express";
 import UserRouter from "./src/router/user.router.js";
+import CustomerRouter from "./src/router/customer.route.js";
 
 const PORT = 8000;
 const app = express();
 
 app.use(express.json());
 app.use("/user", UserRouter);
+app.use("/customer", CustomerRouter);
 
 // request
 // 1.query params
