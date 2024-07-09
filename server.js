@@ -1,8 +1,9 @@
 import express from "express";
 import UserRouter from "./src/router/user.router.js";
 import CustomerRouter from "./src/router/customer.route.js";
+import dotenv from "dotenv";
+dotenv.config();
 
-const PORT = 8000;
 const app = express();
 
 app.use(express.json());
@@ -32,9 +33,9 @@ app.get("/", (request, response) => {
 //   response.status(200).send(`user id = ${id}`);
 // });
 
-app.listen(PORT, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) console.error(err);
-  console.log(`server listening in port ${PORT}`);
+  console.log(`server listening in port ${process.env.PORT}`);
 });
 
 // import http from "http";  // build in module
