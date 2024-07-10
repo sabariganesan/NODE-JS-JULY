@@ -1,6 +1,7 @@
 import express from "express";
 import UserRouter from "./src/router/user.router.js";
 import CustomerRouter from "./src/router/customer.route.js";
+import AuthRouter from "./src/router/auth.router.js";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -8,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json()); // for decode the json payload
 app.use(
   cors({
     origin: "*",
@@ -17,6 +18,7 @@ app.use(
 
 app.use("/user", UserRouter);
 app.use("/customer", CustomerRouter);
+app.use("/auth", AuthRouter);
 
 // request
 // 1.query params
