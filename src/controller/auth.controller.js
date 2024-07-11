@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import path from "path";
 import fs from "fs";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const filePath = path.resolve(process.cwd(), "./data/user.json");
 
@@ -47,7 +48,8 @@ export const login = (request, response) => {
       );
       if (isPasswordMatched) {
         const { password, ...user } = matchedUser;
-        response.status(200).json({ message: "Succcess", data: user });
+        const token = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN);
+        response.status(200).json({ message: "Succcess", data: user, token });
       } else {
         response.status(500).json({ message: "Password is not matching" });
       }
