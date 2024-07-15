@@ -2,6 +2,7 @@ import express from "express";
 import UserRouter from "./src/router/user.router.js";
 import CustomerRouter from "./src/router/customer.route.js";
 import AuthRouter from "./src/router/auth.router.js";
+import VendorRouter from "./src/router/vendor.route.js";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -19,6 +20,7 @@ app.use(
 app.use("/user", UserRouter);
 app.use("/customer", CustomerRouter);
 app.use("/auth", AuthRouter);
+app.use("/vendor", VendorRouter);
 
 // request
 // 1.query params
