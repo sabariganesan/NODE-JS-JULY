@@ -7,7 +7,7 @@ import { protect } from "../middleware/jwt.js";
 
 const route = express.Router();
 
-route.get("/", protect, findCustomer);
-route.post("/", protect, postCustomer);
+route.get("/", findCustomer);
+route.post("/", postCustomer);
 
 export default route;

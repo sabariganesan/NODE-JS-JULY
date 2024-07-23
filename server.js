@@ -5,10 +5,20 @@ import AuthRouter from "./src/router/auth.router.js";
 import VendorRouter from "./src/router/vendor.route.js";
 import dotenv from "dotenv";
 import cors from "cors";
+import mongoose from "mongoose";
 
 dotenv.config();
 
 const app = express();
+
+mongoose
+  .connect(process.env.MONGOOSE_URL)
+  .then(() => {
+    console.log("Mongoose Connected");
+  })
+  .catch((err) => {
+    console.log("Mongoose Connection failed", err);
+  });
 
 app.use(express.json()); // for decode the json payload
 app.use(
