@@ -3,6 +3,8 @@ import UserRouter from "./src/router/user.router.js";
 import CustomerRouter from "./src/router/customer.route.js";
 import AuthRouter from "./src/router/auth.router.js";
 import VendorRouter from "./src/router/vendor.route.js";
+import productRouter from "./src/router/product.route.js";
+import wishlistRouter from "./src/router/wishlist.route.js";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -31,6 +33,8 @@ app.use("/user", UserRouter);
 app.use("/customer", CustomerRouter);
 app.use("/auth", AuthRouter);
 app.use("/vendor", VendorRouter);
+app.use("/product", productRouter);
+app.use("/wishlist", wishlistRouter);
 
 // request
 // 1.query params

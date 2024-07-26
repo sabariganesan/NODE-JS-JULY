@@ -67,3 +67,32 @@ export const postCustomer = async (request, response) => {
     response.status(500).json({ message: "Internal server error", error });
   }
 };
+
+export const putCustomer = async (request, response) => {
+  try {
+    const { name, info, tags, year } = request.body;
+    const { customerId } = request.params;
+    const customer = await Customer.findByIdAndUpdate(customerId, {
+      name,
+      info,
+      tags,
+      year,
+    });
+    if (!customer) {
+      return response.status(500).json({ message: "Invalid Customer" });
+    }
+    response.status(200).json({ message: "Updated", _id: customer._id });
+  } catch (error) {
+    response.status(500).json({ message: "Internal server error", error });
+  }
+};
+
+export const deleteCustomer = async (request, response) => {
+  try {
+    const { customerId } = request.params;
+    const customer = await Customer.findByIdAndDelete(customerId);
+    response.status(200).json({ message: "Deleted", _id: customer._id });
+  } catch (error) {
+    response.status(500).json({ message: "Internal server error", error });
+  }
+};
