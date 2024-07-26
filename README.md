@@ -19,3 +19,5 @@
 - [Mongodb Connect and POST,PUT,GET API Integration](https://github.com/sabariganesan/NODE-JS-JULY/commit/74f2b713ee80a962e304787d620048c6bd3caa11)
 
 - [Mongoose Connect and Basic Query](https://github.com/sabariganesan/NODE-JS-JULY/commit/974b77b7391c257a889e11788a0df43e417e4b8e)
+
+- [Mongoose Aggregate Query](https://github.com/sabariganesan/NODE-JS-JULY/commit/41248eb6759f8b9a3faa8f5946a5f88b63a08685)
